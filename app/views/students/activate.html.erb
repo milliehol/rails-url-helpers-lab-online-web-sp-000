@@ -9,6 +9,11 @@
 <div>
   <% @students.each do |student| %>
     <div>
+        <% if student == active %>
+  inactive.
+  <% else %>
+  active.
+  <% end %>
       <%= link_to student.to_s, student_path(student) %>
     </div>
   <% end %>
