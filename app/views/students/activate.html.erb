@@ -1,19 +1,7 @@
 
-<div>
-  <% @students.each do |student| %>
-    
-  <% if student.active == true %>
-  inactive.
-  <% else %>
-  active.
-  <% end %>
- 
-</div>
-
-<div>
-  <% @students.each do |student| %>
-    <div>
-      <%= link_to student.to_s, student_path(student) %>
-    </div>
-  <% end %>
-</div>
+  def activate
+    @student = Student.find(params[:id])
+    @student.active = !@student.active
+    @student.save
+    redirect_to student_path
+  end
